@@ -8,7 +8,7 @@ the 42 languages `wordfreq` covers will do; the default follows your locale.
 Use it as a standard-input to standard-output filter:
 
 ```console
-$ printf 'Quar-ter-ly re-port, cli-ent-fac-ing!\n' | dehyphenate
+$ echo 'Quar-ter-ly re-port, cli-ent-fac-ing!' | dehyphenate
 Quarterly report, client-facing!
 ```
 
