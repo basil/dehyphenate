@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dehyphenate"
+version = "0.1.0"
+description = "Conservative, streaming dehyphenation in 42 languages"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  # closest_supported_match() first appears in 3.2.
+  "langcodes>=3.2,<4",
+  "regex>=2023.10.3",
+  "wordfreq[cjk]>=3.1.1,<4",
+]
+
+[dependency-groups]
+dev = [
+  "black>=24.10",
+  "isort>=5.13",
+  "mypy>=1.13",
+  "types-regex>=2024.11.6",
+]
+
+[project.scripts]
+dehyphenate = "dehyphenate:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.black]
+target-version = ["py310"]
+
+[tool.isort]
+profile = "black"
+py_version = 310
+src_paths = ["src", "tests"]
+
+[tool.mypy]
+files = ["src", "tests"]
+python_version = "3.10"
+strict = true
